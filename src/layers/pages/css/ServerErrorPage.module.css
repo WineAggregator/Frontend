@@ -1,0 +1,15 @@
+.block {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  color: rgb(217, 45, 32);
+  padding: 20px 30px;
+  border: 2px solid rgb(217, 45, 32);
+  border-radius: 12px;
+  font-size: 20px;
+}/*# sourceMappingURL=ServerErrorPage.module.css.map */

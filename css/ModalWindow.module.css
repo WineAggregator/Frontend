@@ -1,0 +1,14 @@
+.content {
+  position: relative;
+  padding-top: 40px;
+}
+
+.closeIcon path {
+  fill: red;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}/*# sourceMappingURL=ModalWindow.module.css.map */

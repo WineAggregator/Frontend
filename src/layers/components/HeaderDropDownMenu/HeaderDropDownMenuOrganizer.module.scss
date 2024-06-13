@@ -1,0 +1,12 @@
+.navItem {
+  font-size: 18px;
+  overflow: hidden;
+
+  a, button {
+    padding: 10px 20px;
+    width: 100%;
+    &:hover {
+      background-color: rgba(79, 4, 24, 0.2);
+    }
+  }
+}

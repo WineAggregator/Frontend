@@ -1,0 +1,76 @@
+
+#root {
+  height: 100vh;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  overflow: auto;
+  height: 100vh;
+}
+
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+._container {
+  margin: 0 auto;
+  max-width: 1647px;
+  padding: 0 15px;
+}
+
+.main {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: 40px;
+}
+
+button {
+  border: none;
+}
+button, a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: transparent;
+}
+
+input {
+  
+}
+
+input:focus {
+  outline: none;
+}
+
+._imgAbs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+._emptyList {
+  font-weight: 300;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: rgba(0,0,0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

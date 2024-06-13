@@ -1,0 +1,34 @@
+.profileLink {
+  margin-left: auto;
+  padding: 5px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255 ,255, 0);
+
+  &:hover {
+    border: 2px solid rgba(255,255 ,255, 1);
+    cursor: pointer;
+  }
+}
+
+.profileSvg {
+  path {
+    fill: white;
+  }
+}
+
+.menuContent {
+  overflow: hidden;
+}
+
+.navItem {
+  font-size: 18px;
+  overflow: hidden;
+
+  a, button {
+    padding: 10px 20px;
+    width: 100%;
+    &:hover {
+      background-color: rgba(79, 4, 24, 0.2);
+    }
+  }
+}

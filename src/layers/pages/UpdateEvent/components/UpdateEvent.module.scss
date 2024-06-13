@@ -1,0 +1,61 @@
+.row {
+  display: flex;
+}
+
+.coverBlock {
+
+}
+
+.coverBlockTitle {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.uploadCover {
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.column {
+  &:not(:last-of-type) {
+    margin-right: 25px;
+  }
+}
+
+.mainInfoTitle {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.formField {
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+}
+.formFieldText {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.inputText {
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid rgba(79, 4, 24, 1);
+}
+
+.description {
+  min-height: 100px;
+  max-height: 200px;
+  min-width: 45%;
+  max-width: 60%;
+}
+
+.mainInfo {
+  flex-grow: 1;
+}
+
+.mainInfoForm {
+  display: flex;
+}

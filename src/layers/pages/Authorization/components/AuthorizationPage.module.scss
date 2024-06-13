@@ -1,0 +1,86 @@
+.page {
+  padding-top: 90px;
+}
+
+.auth {
+  border: 2px solid rgba(79, 4, 24, 1);
+  width: 500px;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 35px 0;
+  background: url('./form-bg.png');
+}
+
+.headerPage {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.form {
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fieldLabel {
+  display: block;
+  color: white;
+  &:not(:last-of-type) {
+    margin-bottom: 25px;
+  }
+}
+
+.fieldText {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.textInput {
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  border: 2px solid rgba(79, 4, 24, 1);
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+.submitBtnContainer {
+  margin-top: 50px;
+}
+
+.userType {
+  margin-top: 20px;
+  .radio {
+    --g-color-base-generic: rgba(255, 255, 255, 0.8);
+    --g-text-body-1-font-size: 17px;
+  }
+}
+
+.userTypeHeader {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.submitBtn {
+  --g-button-text-color: rgba(255, 255, 255, 1);
+  --g-button-background-color: rgba(79, 4, 24, 1);
+  --g-button-background-color-hover: rgba(255, 255, 255, 1);
+  --g-button-text-color-hover: rgba(79, 4, 24, 1);
+  --g-button-border-width: 2px; 
+  --g-button-font-size: 20px;
+  --g-button-border-radius: 10px;
+
+  --g-button-padding: 35px;
+
+  height: 45px;
+
+  &:hover {
+    --g-button-border-color: rgba(79, 4, 24, 1);
+  }
+}
