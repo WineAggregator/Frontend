@@ -7,7 +7,7 @@ export interface ICheckEventData {
   address: string,
   price: number,
   link: string,
-  eventType: EventType,
+  eventType: EventType | number,
   dateFrom: Date,
   dateTo: Date,
   organizerName: string,

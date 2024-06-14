@@ -15,7 +15,13 @@ interface ITicketData {
 const TicketsListPage = () => {
   const tickets = useLoaderData() as ITicketData[];
   const [open, setOpen] = useState<boolean>(false);
-  const [currentTicket, setCurrentTicket] = useState<ITicket>(tickets[0].ticket);
+  const defaultTicket: ITicket = {
+    id: 0,
+    eventId: 0,
+    userId: 0,
+    isActivated: false
+  };
+  const [currentTicket, setCurrentTicket] = useState<ITicket>(defaultTicket);
 
   return (
     <div className={styles.page}>

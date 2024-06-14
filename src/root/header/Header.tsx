@@ -13,7 +13,9 @@ const Header = () => {
       <div className={`_container ${styles.container}`}>
         <div className={styles.logo}>
           <div className={styles.logoImg}>
-            <img src={require('./logo.png')} />
+            <Link to={'/'}>
+              <img src={require('./logo.png')} />            
+            </Link>
           </div>
           <div className={styles.logoText}>
             Wine Events

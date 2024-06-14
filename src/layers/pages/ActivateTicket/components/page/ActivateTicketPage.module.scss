@@ -96,4 +96,23 @@
       color: rgba(79, 4, 24, 1);
     }
   }
+
+  .activate {
+    &:hover {
+      padding: 10px 10px;
+      color: white;
+      background-color: rgba(79, 4, 24, 1);
+      border: 2px solid rgba(79, 4, 24, 0);
+      width: 100%;
+      border-radius: 8px;
+      cursor: auto;
+    }
+  }
+}
+
+.lockActivate {
+  padding: 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: red;
 }

@@ -6,6 +6,7 @@ import { Form, Link, useNavigate } from 'react-router-dom';
 import { IUser } from '../../../types/IUser';
 import { UserType } from '../../../types/UserType';
 import HeaderDropDownMenuOrganizer from './HeaderDropDownMenuOrganizer';
+import HeaderDropDownMenuClient from './HeaderDropDownMenuClient';
 
 interface IHeaderDropDownMenuProps {
   user: IUser
@@ -26,7 +27,7 @@ const HeaderDropDownMenu = ({ user }: IHeaderDropDownMenuProps) => {
             user.userType == UserType.Organizer ? (
               <HeaderDropDownMenuOrganizer id={user.id}/>
             ) : (
-              <></>
+              <HeaderDropDownMenuClient id={user.id}/>
             )
           }
           <div className={styles.navItem}>

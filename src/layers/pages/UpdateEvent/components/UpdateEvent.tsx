@@ -5,18 +5,20 @@ import { ICheckEventData } from '../../CheckEvent/types/IEventData';
 import UploaderImg from '../../../components/UploaderImg/components/UploaderImg';
 import { API_URL } from '../../../../http';
 import { DatePicker } from '@gravity-ui/date-components';
-import { Button } from '@gravity-ui/uikit';
+import { Button, RadioButton, RadioButtonOption } from '@gravity-ui/uikit';
 import { dateTime, dateTimeParse } from '@gravity-ui/date-utils';
+import { EventType } from '../../../../types/EventType';
 
 const UpdateEvent = () => {
   const { eventId } = useParams();
   const event = useLoaderData() as ICheckEventData;
   const fetcher = useFetcher<ICheckEventData>();
   const [isNew, setIsNew] = useState<boolean>(eventId == 'new');
+  const options: RadioButtonOption[] = [
+    { value: '0', content: 'Дегустация' },
+    { value: '1', content: 'Мастер-класс' },
+  ];
 
-  useEffect(() => {
-
-  },)
   return (
     <div className={styles.page}>
       <div className={`${styles.pageContainer} _container`}>
@@ -92,7 +94,7 @@ const UpdateEvent = () => {
                       Цена
                     </div>
                     <div className={styles.formFieldInput}>
-                      <input type='number' min="0" name="price" defaultValue={event.address} className={styles.inputText} />
+                      <input type='number' min="0" name="price" defaultValue={event.price} className={styles.inputText} />
                     </div>
                   </label>
                 </div>
@@ -117,6 +119,16 @@ const UpdateEvent = () => {
                       <DatePicker className={styles.dateInput} size='l' defaultValue={dateTimeParse(event.dateTo)}
                       format='DD/MM/YY hh:mm'
                       name='dateTo'/>
+                    </div>
+                  </label>
+                </div>
+                <div className={styles.formField}>
+                  <label>
+                    <div className={styles.formFieldText}>
+                      Тип мероприятия
+                    </div>
+                    <div className={styles.formFieldInput}>
+                      <RadioButton name='eventType' defaultValue={event.eventType == EventType.Degustation ? options[0].value : options[1].value} options={options} className={styles.radio}/>
                     </div>
                   </label>
                 </div>

@@ -60,7 +60,7 @@ const ActivateTicketPage = () => {
               checkData.isOrganizer ? (
                 <div className={styles.activateBtn}>
                   <Form method="POST" action={`/activateTicket/${checkData.ticket.id}`}>
-                    <button type='submit' disabled={checkData.ticket.isActivated}>
+                    <button type='submit' disabled={checkData.ticket.isActivated} className={checkData.ticket.isActivated ? styles.activate : styles.unactivate}>
                       {
                         checkData.ticket.isActivated ? "Билет активирован" : "Активировать билет"
                       }
