@@ -5,6 +5,7 @@ import { ICheckEventData } from '../../../CheckEvent/types/IEventData';
 import EventsList from '../list/EventsList';
 import EventsListFilterPanel from '../filterPanel/EventsListFilterPanel';
 import { EventType } from '../../../../../types/EventType';
+import QRCode, { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
 
 
 const EventsListPage = () => {

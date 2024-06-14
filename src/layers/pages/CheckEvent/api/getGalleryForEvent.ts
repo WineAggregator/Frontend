@@ -6,14 +6,7 @@ import { ICheckEventGallery } from "../types/ICheckEventGallery";
 
 export default async function getGalleryForEvent(eventId: number) {
   try {
-    //const response = await $api.get<ICheckEventData>(``);
-
-    const response: MyResponse<ICheckEventGallery> = {
-      status: 200,
-      data: {
-        links: photoGallery
-      }
-    }
+    const response = await $api.get(`events`);
 
     return response;
   } catch(e: any) {

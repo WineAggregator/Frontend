@@ -1,0 +1,41 @@
+.list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.item {
+  position: relative;
+
+  &:hover {
+    .toolPanel {
+      opacity: 1;
+      transition: 0.3s;
+    }
+  }
+}
+
+.toolPanel {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  opacity: 0;
+}
+
+.update {
+  border: 1px solid rgba(79, 4, 24, 0);
+  padding: 3px;
+  border-radius: 50%;
+
+  &:hover {
+    border: 1px solid rgba(79, 4, 24, 1);
+  }
+}
+.updateIconSvg {
+  &:hover{
+    path {
+      fill: rgba(79, 4, 24, 1);
+    }    
+  }
+}

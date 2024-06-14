@@ -4,6 +4,7 @@ import { EventType } from '@testing-library/react';
 import { ICheckEventData } from '../../../CheckEvent/types/IEventData';
 import eventTypeToString from '../../../../../utils/eventTypeTypeToString';
 import dateToShortDate from '../../../../../utils/dateToShortDate';
+import { Link } from 'react-router-dom';
 
 interface IEventsListItemProps {
   item: ICheckEventData
@@ -22,12 +23,14 @@ const EventsListItem = ({ item }: IEventsListItemProps) => {
             <img src={require('./calendar.png')} />
           </div>
           <div className={styles.dateFromText}>
-            {dateToShortDate(item.dateFrom)}
+            {new Date(item.dateFrom).toLocaleDateString()}
           </div>
         </div>
       </div>
       <div className={`${styles.line} ${styles.cover}`}>
-        <img src={item.previewPhotoLink} className={"_imgAbs"}/>
+        <Link to={`/event/${item.id}`}>
+          <img src={item.previewPhotoLink} className={"_imgAbs"} />
+        </Link>
       </div>
       <div className={`${styles.line} ${styles.title}`}>
         {item.title}

@@ -2,9 +2,7 @@
   display: flex;
 }
 
-.coverBlock {
-
-}
+.coverBlock {}
 
 .coverBlockTitle {
   font-size: 30px;
@@ -33,6 +31,7 @@
     margin-bottom: 10px;
   }
 }
+
 .formFieldText {
   font-size: 20px;
   font-weight: 500;
@@ -48,8 +47,8 @@
 .description {
   min-height: 100px;
   max-height: 200px;
-  min-width: 45%;
-  max-width: 60%;
+  min-width: 450px;
+  max-width: 450px;
 }
 
 .mainInfo {
@@ -58,4 +57,39 @@
 
 .mainInfoForm {
   display: flex;
+  column-gap: 40px;
+}
+
+.dateInput {
+  border: 1px solid rgba(79, 4, 24, 1);
+  border-radius: 8px;
+
+  input {
+    height: 35px;
+  }
+}
+
+.submitBtnBlock {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+.mainInfoColumnSecond {
+  position: relative;
+}
+
+.submitBtn {
+  --g-button-text-color: rgba(255, 255, 255, 1);
+  --g-button-background-color: rgba(79, 4, 24, 1);
+  --g-button-background-color-hover: rgba(255, 255, 255, 1);
+  --g-button-text-color-hover: rgba(79, 4, 24, 1);
+  --g-button-border-width: 2px;
+  --g-button-font-size: 20px;
+  --g-button-border-radius: 10px;
+
+  --g-button-padding: 35px;
+
+  height: 45px;
 }

@@ -1,12 +1,17 @@
 import React from 'react';
 import styles from './CheckEvent.module.scss';
-import { useLoaderData } from 'react-router-dom';
+import { Form, redirect, useLoaderData, useNavigate } from 'react-router-dom';
 import { ICheckEventData } from '../../types/IEventData';
 import { Button } from '@gravity-ui/uikit';
 import CheckEventGallery from '../gallery/CheckEventGallery';
+import { dateTimeParse } from '@gravity-ui/date-utils';
+import dayjs from '@gravity-ui/date-utils/build/dayjs';
 
 const CheckEvent = () => {
   const event = useLoaderData() as ICheckEventData;
+  const dateFrom = new Date(event.dateFrom).toLocaleDateString();
+  const duration = dayjs(event.dateTo).diff(event.dateFrom, "hours").toLocaleString()
+  const navigate = useNavigate();
 
   return (
     <div className={styles.CheckEvent}>
@@ -14,12 +19,14 @@ const CheckEvent = () => {
         <div className={styles.checkEventLine}>
           <div className={styles.firstColumn}>
             <div className={styles.cover}>
-              <img src='https://nogtipro.com/wp-content/uploads/2023/11/sa-3.jpg'/>
+              <img src={event.previewPhotoLink}/>
             </div>
             <div className={styles.buyButtonBlock}>
-              <Button view='action' className={styles.buyButton}>
-                Купить
-              </Button>
+              <Form method="POST" action={`/buyTicket/${event.id}`}>
+                <button type='submit' className={styles.buyButton}>
+                  Купить билет
+                </button>
+              </Form>
             </div>
           </div>
           <div className={`${styles.CheckEventInfo} ${styles.secondColumn}`}>
@@ -29,10 +36,10 @@ const CheckEvent = () => {
               </div>
               <div className={styles.date}>
                 <div className={styles.dateFrom}>
-                  24/04/2024
+                  {dateFrom}
                 </div>
                 <div className={styles.dateDuration}>
-                  <span className='key'>Продолжительность:</span> <span className='value'>2 часа</span>
+                  <span className='key'>Продолжительность(в часах):</span> <span className='value'>{duration}</span>
                 </div>
               </div>
             </div>

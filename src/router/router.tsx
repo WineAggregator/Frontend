@@ -16,14 +16,33 @@ import { logoutAction } from "../root/actions/logoutAction";
 import CreateUpdateEvent from "../layers/pages/UpdateEvent/components/UpdateEvent";
 import UpdateEvent from "../layers/pages/UpdateEvent/components/UpdateEvent";
 import { updateEventLoader } from "../layers/pages/UpdateEvent/loaders/updateEventLoader";
-import { updateEventActions } from "../layers/pages/UpdateEvent/actions/updateEventAction";
+import { updateEventAction } from "../layers/pages/UpdateEvent/actions/updateEventAction";
 import { createEventAction } from "../actions/createEventAction";
+import EventsListForOrganizer from "../layers/pages/EventsListForOrganizer/components/page/EventsListForOrganizer";
+import { eventsListForOrganizerLoader } from "../layers/pages/EventsListForOrganizer/loaders/eventsListForOrganizerLoader";
+import { buyTicketAction } from "../actions/buyTicketAction";
+import { ticketsListLoader } from "../layers/pages/TicketsList/loaders/ticketsListLoader";
+import TicketsListPage from "../layers/pages/TicketsList/components/page/TicketsListPage";
 
 const router = createBrowserRouter([{
   path: '/',
   element: <Root />,
   errorElement: <ClientErrorPage />,
   children: [
+    {
+      path: 'myTickets',
+      element: <TicketsListPage/>,
+      loader: ticketsListLoader,
+    },
+    {
+      path: 'buyTicket/:eventId',
+      action: buyTicketAction
+    },
+    {
+      path: 'myEvents',
+      element: <EventsListForOrganizer/>,
+      loader: eventsListForOrganizerLoader,
+    },
     {
       path: 'createEvent',
       action: createEventAction
@@ -32,7 +51,7 @@ const router = createBrowserRouter([{
       path: 'updateEvent/:eventId',
       element: <UpdateEvent/>,
       loader: updateEventLoader,
-      action: updateEventActions
+      action: updateEventAction
     },
     {
       path: 'logout',
@@ -53,10 +72,6 @@ const router = createBrowserRouter([{
       element: <ServerErrorPage />
     },
     {
-      index: true,
-      element: <IndexPage />
-    },
-    {
       path: 'event/:eventId',
       element: <CheckEvent />,
       loader: CheckEventLoader,
@@ -68,7 +83,7 @@ const router = createBrowserRouter([{
       ]
     },
     {
-      path: 'events',
+      index: true,
       element: <EventsListPage/>,
       loader: eventsListLoader
     }

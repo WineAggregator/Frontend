@@ -5,13 +5,7 @@ import { IEventsListResponse } from "../types/IEventsListResponse";
 
 export async function getAllEvents() {
   try {
-    //const response = await $api.get(``)
-    const response: MyResponse<IEventsListResponse> = {
-      status: 200,
-      data: {
-        events: events
-      }
-    };
+    const response = await $api.get(`events`)
 
     return response;
   } catch(e: any) {

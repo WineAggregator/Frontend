@@ -5,6 +5,8 @@ import { ICheckEventData } from '../../CheckEvent/types/IEventData';
 import UploaderImg from '../../../components/UploaderImg/components/UploaderImg';
 import { API_URL } from '../../../../http';
 import { DatePicker } from '@gravity-ui/date-components';
+import { Button } from '@gravity-ui/uikit';
+import { dateTime, dateTimeParse } from '@gravity-ui/date-utils';
 
 const UpdateEvent = () => {
   const { eventId } = useParams();
@@ -38,7 +40,9 @@ const UpdateEvent = () => {
             <h3 className={styles.mainInfoTitle}>
               Основная информация
             </h3>
-            <fetcher.Form method='POST' action='/updateEventAction' className={styles.mainInfoForm}>
+            <fetcher.Form method='POST' action={`/updateEvent/${eventId}`} className={styles.mainInfoForm} onSubmit={() => {
+              const s = 0;
+            }}>
               <div className={styles.mainInfoColumn}>
                 <div className={styles.formField}>
                   <label>
@@ -81,14 +85,14 @@ const UpdateEvent = () => {
                   </label>
                 </div>
               </div>
-              <div className={styles.mainInfoColumn}>
+              <div className={`${styles.mainInfoColumn} ${styles.mainInfoColumnSecond}`}>
                 <div className={styles.formField}>
                   <label>
                     <div className={styles.formFieldText}>
                       Цена
                     </div>
                     <div className={styles.formFieldInput}>
-                      <input type='number' min="0" name="address" defaultValue={event.address} className={styles.inputText} />
+                      <input type='number' min="0" name="price" defaultValue={event.address} className={styles.inputText} />
                     </div>
                   </label>
                 </div>
@@ -98,7 +102,9 @@ const UpdateEvent = () => {
                       Дата начала
                     </div>
                     <div className={styles.formFieldInput}>
-                      <DatePicker />
+                      <DatePicker className={styles.dateInput} size='l' defaultValue={dateTimeParse(event.dateFrom)}
+                      format='DD/MM/YY hh:mm'
+                      name='dateFrom'/>
                     </div>
                   </label>
                 </div>
@@ -108,9 +114,16 @@ const UpdateEvent = () => {
                       Дата окончания
                     </div>
                     <div className={styles.formFieldInput}>
-                      <DatePicker />
+                      <DatePicker className={styles.dateInput} size='l' defaultValue={dateTimeParse(event.dateTo)}
+                      format='DD/MM/YY hh:mm'
+                      name='dateTo'/>
                     </div>
                   </label>
+                </div>
+                <div className={styles.submitBtnBlock}>
+                  <Button type='submit' className={styles.submitBtn}>
+                    Сохранить изменения
+                  </Button>
                 </div>
               </div>
             </fetcher.Form>
