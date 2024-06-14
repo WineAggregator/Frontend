@@ -27,6 +27,7 @@ $api.interceptors.response.use(
   },
   (error) => {
     console.log(error)
+    if (!store.isAuth) return redirect("/");
     if (error.response != undefined) {
       if (axios.isAxiosError(error) && (error.response.status == 400 || error.response.status == 422)) {
         return error.response;
