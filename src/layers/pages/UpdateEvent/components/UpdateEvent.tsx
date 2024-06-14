@@ -52,7 +52,7 @@ const UpdateEvent = () => {
                       Название мероприятия
                     </div>
                     <div className={styles.formFieldInput}>
-                      <input type='text' name="title" defaultValue={event.title} className={styles.inputText} />
+                      <input type='text' name="title" maxLength={100} defaultValue={event.title} className={styles.inputText} />
                     </div>
                   </label>
                 </div>
@@ -72,7 +72,7 @@ const UpdateEvent = () => {
                       Организатор
                     </div>
                     <div className={styles.formFieldInput}>
-                      <input type='text' name="organizerName" defaultValue={event.organizerName} className={styles.inputText} />
+                      <input type='text' name="organizerName" maxLength={100} defaultValue={event.organizerName} className={styles.inputText} />
                     </div>
                   </label>
                 </div>
@@ -82,7 +82,7 @@ const UpdateEvent = () => {
                       Адрес
                     </div>
                     <div className={styles.formFieldInput}>
-                      <input type='text' name="address" defaultValue={event.address} className={styles.inputText} />
+                      <input type='text' name="address" maxLength={100} defaultValue={event.address} className={styles.inputText} />
                     </div>
                   </label>
                 </div>
@@ -94,7 +94,7 @@ const UpdateEvent = () => {
                       Цена
                     </div>
                     <div className={styles.formFieldInput}>
-                      <input type='number' min="0" name="price" defaultValue={event.price} className={styles.inputText} />
+                      <input type='number' min="0" maxLength={100} name="price" defaultValue={event.price} className={styles.inputText} />
                     </div>
                   </label>
                 </div>
