@@ -35,7 +35,7 @@ const TicketsListPage = () => {
           <div className={styles.modalContent}>
             <div className={styles.qr}>
               <Link to={`/activateTicket/${currentTicket.id}`}>
-                <QRCodeSVG value={`/activateTicket/${currentTicket.id}`} size={500}/>              
+                <QRCodeSVG value={`http://85.193.80.175/activateTicket/${currentTicket.id}`} size={500}/>              
               </Link>
             </div>
           </div>
