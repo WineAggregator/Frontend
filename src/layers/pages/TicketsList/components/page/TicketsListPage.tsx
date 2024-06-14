@@ -28,7 +28,9 @@ const TicketsListPage = () => {
           </div>
           <div className={styles.modalContent}>
             <div className={styles.qr}>
-              <QRCodeSVG value={`/activateTicket/${currentTicket}`} size={500}/>
+              <Link to={`/activateTicket/${currentTicket.id}`}>
+                <QRCodeSVG value={`/activateTicket/${currentTicket.id}`} size={500}/>              
+              </Link>
             </div>
           </div>
         </div>

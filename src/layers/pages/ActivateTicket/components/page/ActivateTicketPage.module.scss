@@ -1,0 +1,99 @@
+.page {
+  padding-top: 100px;
+}
+
+.pageContainer {
+  width: 600px;
+  border: 2px solid rgba(79, 4, 24, 1);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.pageTitle {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.eventCard {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.eventContent > div:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.cover {
+  width: 100%;
+  width: 200px;
+  height: 200px;
+  margin-left: 15px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.ticketStatus {
+  margin-bottom: 10px;
+
+  span {
+    font-weight: 700;
+    margin-left: 7px;
+  }
+
+  .active {
+    color: red;
+  }
+
+  .unactive {
+    color: green;
+  }
+}
+
+.eventTitle {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.dateTo {
+  span {
+    margin-left:7px;
+    font-weight: 700;
+    color: rgba(79, 4, 24, 1);
+  }
+}
+
+.eventPrice  {
+  span {
+    color: rgba(79, 4, 24, 1);
+    font-weight: 700;
+    margin-left: 7px;
+  }
+}
+
+.activateBtn {
+  padding: 0 10px;
+
+  button {
+    padding: 10px 10px;
+    color: white;
+    background-color: rgba(79, 4, 24, 1);
+    border: 2px solid rgba(79, 4, 24, 0);
+    width: 100%;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: white;
+      border: 2px solid rgba(79, 4, 24, 1);
+      color: rgba(79, 4, 24, 1);
+    }
+  }
+}

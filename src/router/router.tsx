@@ -23,12 +23,21 @@ import { eventsListForOrganizerLoader } from "../layers/pages/EventsListForOrgan
 import { buyTicketAction } from "../actions/buyTicketAction";
 import { ticketsListLoader } from "../layers/pages/TicketsList/loaders/ticketsListLoader";
 import TicketsListPage from "../layers/pages/TicketsList/components/page/TicketsListPage";
+import ActivateTicketPage from "../layers/pages/ActivateTicket/components/page/ActivateTicketPage";
+import { activateTicketLoader } from "../layers/pages/ActivateTicket/loaders/activateTicketLoader";
+import { activateTicketAction } from "../layers/pages/ActivateTicket/actions/activateTicketAction";
 
 const router = createBrowserRouter([{
   path: '/',
   element: <Root />,
   errorElement: <ClientErrorPage />,
   children: [
+    {
+      path: 'activateTicket/:ticketId',
+      element: <ActivateTicketPage/>,
+      loader: activateTicketLoader,
+      action: activateTicketAction,
+    },
     {
       path: 'myTickets',
       element: <TicketsListPage/>,
