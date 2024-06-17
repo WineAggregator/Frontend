@@ -63,21 +63,23 @@ div .buyButton {
   font-size: 54px;
   line-height: 1.2;
   font-weight: 700;
+  max-width: 760px;
 }
 
 .date {
-  height: 110px;
   border: 2px solid rgba(79, 4, 24, 1);
-  border-radius: 100px;
+  border-radius: 10px;
   overflow: hidden;
   color: rgba(79, 4, 24, 1);
   text-align: center;
-  padding: 18px 37px;
+  padding: 8px 13px;
   font-size: 20px;
   margin-left: auto;
+  line-height: 1;
   .dateFrom {
     font-weight: 700;
-    font-size: 30px;
+    font-size: 20px;
+    margin-bottom: 3px;
   }
 
   .dateDuration {
@@ -87,7 +89,7 @@ div .buyButton {
     }
 
     .value {
-      font-size: 30px;
+      font-size: 20px;
     }
   }
 }

@@ -5,20 +5,30 @@ import { ICheckEventData } from '../../CheckEvent/types/IEventData';
 import UploaderImg from '../../../components/UploaderImg/components/UploaderImg';
 import { API_URL } from '../../../../http';
 import { DatePicker } from '@gravity-ui/date-components';
-import { Button, RadioButton, RadioButtonOption } from '@gravity-ui/uikit';
-import { dateTime, dateTimeParse } from '@gravity-ui/date-utils';
+import { Button, Icon, RadioButton, RadioButtonOption } from '@gravity-ui/uikit';
+import { DateTime, dateTime, dateTimeParse } from '@gravity-ui/date-utils';
 import { EventType } from '../../../../types/EventType';
+import Notification from '../../../ui/Notification/Notification';
+import {CircleCheck} from '@gravity-ui/icons';
 
 const UpdateEvent = () => {
   const { eventId } = useParams();
   const event = useLoaderData() as ICheckEventData;
-  const fetcher = useFetcher<ICheckEventData>();
+  const fetcher = useFetcher<number>();
+  const [dateFrom, setDateFrom] = useState<any>(dateTimeParse(new Date().toDateString()));
   const [isNew, setIsNew] = useState<boolean>(eventId == 'new');
   const options: RadioButtonOption[] = [
     { value: '0', content: 'Дегустация' },
     { value: '1', content: 'Мастер-класс' },
   ];
 
+  const [visibleNotification, setVisibleNotification] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (fetcher.data == 200) {
+      setVisibleNotification(true);
+    }
+  }, [fetcher])
   return (
     <div className={styles.page}>
       <div className={`${styles.pageContainer} _container`}>
@@ -52,7 +62,7 @@ const UpdateEvent = () => {
                       Название мероприятия
                     </div>
                     <div className={styles.formFieldInput}>
-                      <input type='text' name="title" maxLength={100} defaultValue={event.title} className={styles.inputText} />
+                      <input type='text' name="title" maxLength={100} defaultValue={event.title} className={`${styles.inputText} ${styles.title}`} />
                     </div>
                   </label>
                 </div>
@@ -105,6 +115,7 @@ const UpdateEvent = () => {
                     </div>
                     <div className={styles.formFieldInput}>
                       <DatePicker className={styles.dateInput} size='l' defaultValue={dateTimeParse(event.dateFrom)}
+                      onUpdate={(value) => setDateFrom(value)}
                       format='DD/MM/YY hh:mm'
                       name='dateFrom'/>
                     </div>
@@ -118,7 +129,9 @@ const UpdateEvent = () => {
                     <div className={styles.formFieldInput}>
                       <DatePicker className={styles.dateInput} size='l' defaultValue={dateTimeParse(event.dateTo)}
                       format='DD/MM/YY hh:mm'
-                      name='dateTo'/>
+                      name='dateTo'
+                      minValue={dateFrom}
+                      />
                     </div>
                   </label>
                 </div>
@@ -136,6 +149,21 @@ const UpdateEvent = () => {
                   <Button type='submit' className={styles.submitBtn}>
                     Сохранить изменения
                   </Button>
+                  <Notification lifeTimeInMS={3000} styles={styles.Notification} visible={visibleNotification}
+                    setVisible={setVisibleNotification}
+                  >
+                    <div className={styles.succesIcon}>
+                      <Icon data={CircleCheck} size={40}/>
+                    </div>
+                    <div className={styles.succesContent}>
+                      <div className={styles.succesTitle}>
+                        Изменения сохранены
+                      </div>
+                      <div className={styles.succesText}>
+                        Новые данные будут отражены на странице события
+                      </div>
+                    </div>    
+                  </Notification>
                 </div>
               </div>
             </fetcher.Form>

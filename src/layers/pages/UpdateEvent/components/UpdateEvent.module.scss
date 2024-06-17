@@ -9,6 +9,7 @@
   margin-bottom: 15px;
 }
 
+
 .uploadCover {
   width: 400px;
   height: 400px;
@@ -42,6 +43,10 @@
   height: 35px;
   border-radius: 5px;
   border: 1px solid rgba(79, 4, 24, 1);
+}
+
+.title {
+  width: 450px;
 }
 
 .description {
@@ -98,4 +103,43 @@
   background-color: rgba(79, 4, 24, 0.8);
   --g-color-base-generic: rgba(255, 255, 255, 0.8);
   --g-text-body-1-font-size: 17px;
+}
+
+.submitBtnBlock {
+  position: relative;
+}
+
+.Notification {
+  display: flex;
+  position: absolute;
+  bottom: -150%;
+  background-color: rgb(47, 66, 47);
+  border-radius: 10px;
+  padding: 3px 6px;
+}
+
+.succesIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  path {
+    fill: white;
+  }
+  margin-right: 10px;
+
+}
+
+.succesContent {
+  color: white;
+}
+
+.succesTitle {
+  margin-bottom: 5px;
+  font-weight: 700;
+
+}
+
+.succesText {
+  font-size: 14px;
 }

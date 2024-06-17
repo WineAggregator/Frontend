@@ -3,12 +3,13 @@ import styles from "./EventsList.module.scss";
 import { ICheckEventData } from '../../../CheckEvent/types/IEventData';
 import { useLoaderData } from 'react-router-dom';
 import EventsListItem from '../item/EventsListItem';
+import { observer } from 'mobx-react-lite';
 
 interface IEventsListProps {
   events: ICheckEventData[]
 }
 
-const EventsList = ({ events }: IEventsListProps) => {
+const EventsList = observer(({ events }: IEventsListProps) => {
 
   return (
     <div className={styles.container}>
@@ -29,6 +30,6 @@ const EventsList = ({ events }: IEventsListProps) => {
       }
     </div>
   );
-};
+})
 
 export default EventsList;

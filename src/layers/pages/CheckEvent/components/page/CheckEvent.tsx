@@ -10,7 +10,11 @@ import dayjs from '@gravity-ui/date-utils/build/dayjs';
 const CheckEvent = () => {
   const event = useLoaderData() as ICheckEventData;
   const dateFrom = new Date(event.dateFrom).toLocaleDateString();
-  const duration = dayjs(event.dateTo).diff(event.dateFrom, "hours").toLocaleString()
+  const durationInMS: number = dayjs(event.dateTo).diff(event.dateFrom);
+  const hours = Math.trunc(durationInMS / 3600000);
+  const hoursOst = durationInMS % 3600000;
+  const minutes = Math.trunc(hoursOst / 60000);
+  const durationStr = `${hours != 0 ? `${hours} час.` : ""} ${minutes != 0 ? `${minutes} мин.` : ""}`
   const navigate = useNavigate();
 
   return (
@@ -39,7 +43,7 @@ const CheckEvent = () => {
                   {dateFrom}
                 </div>
                 <div className={styles.dateDuration}>
-                  <span className='key'>Продолжительность(в часах):</span> <span className='value'>{duration}</span>
+                  <span className='key'>Продолжительность:</span> <span className='value'>{durationStr}</span>
                 </div>
               </div>
             </div>

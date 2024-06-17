@@ -26,8 +26,31 @@ import TicketsListPage from "../layers/pages/TicketsList/components/page/Tickets
 import ActivateTicketPage from "../layers/pages/ActivateTicket/components/page/ActivateTicketPage";
 import { activateTicketLoader } from "../layers/pages/ActivateTicket/loaders/activateTicketLoader";
 import { activateTicketAction } from "../layers/pages/ActivateTicket/actions/activateTicketAction";
+import UnauthorizedPage from "../layers/pages/UnauthorizedPage/UnauthorizedPage";
 
-const router = createBrowserRouter([{
+export const unauthorizedRouter = createBrowserRouter([{
+  path: '/',
+  element: <Root/>,
+  errorElement: <ClientErrorPage/>,
+  children: [
+    {
+      index: true,
+      element: <UnauthorizedPage/>
+    },
+    {
+      path: 'login',
+      element: <AuthorizationPage/>,
+      action: loginAction
+    },
+    {
+      path: 'registration',
+      element: <AuthorizationPage/>,
+      action: registrationAction
+    },
+  ]
+}]);
+
+export const router = createBrowserRouter([{
   path: '/',
   element: <Root />,
   errorElement: <ClientErrorPage />,
@@ -99,5 +122,3 @@ const router = createBrowserRouter([{
   ]
 },
 ])
-
-export default router;

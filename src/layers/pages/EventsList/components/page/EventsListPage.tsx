@@ -6,10 +6,11 @@ import EventsList from '../list/EventsList';
 import EventsListFilterPanel from '../filterPanel/EventsListFilterPanel';
 import { EventType } from '../../../../../types/EventType';
 import QRCode, { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
+import { observer } from 'mobx-react-lite';
 
 
-const EventsListPage = () => {
-  const events = useLoaderData() as ICheckEventData[];
+const EventsListPage = observer(() => {
+  const events = useLoaderData() as ICheckEventData[] ?? [];
   const [filterEvents, setFilterEvents] = useState<ICheckEventData[]>(events);
 
   return (
@@ -24,6 +25,6 @@ const EventsListPage = () => {
       </div>
     </div>
   );
-};
+})
 
 export default EventsListPage;

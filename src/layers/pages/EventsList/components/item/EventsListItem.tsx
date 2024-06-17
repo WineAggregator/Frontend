@@ -5,12 +5,14 @@ import { ICheckEventData } from '../../../CheckEvent/types/IEventData';
 import eventTypeToString from '../../../../../utils/eventTypeTypeToString';
 import dateToShortDate from '../../../../../utils/dateToShortDate';
 import { Link } from 'react-router-dom';
+import dayjs from '@gravity-ui/date-utils/build/dayjs';
 
 interface IEventsListItemProps {
   item: ICheckEventData
 }
 
 const EventsListItem = ({ item }: IEventsListItemProps) => {
+  const dateTimeStr = `${dayjs(item.dateFrom).format('DD/MM/YY hh:mm')}`
 
   return (
     <div className={styles.card}>
@@ -23,7 +25,7 @@ const EventsListItem = ({ item }: IEventsListItemProps) => {
             <img src={require('./calendar.png')} />
           </div>
           <div className={styles.dateFromText}>
-            {new Date(item.dateFrom).toLocaleDateString()}
+            {dateTimeStr}
           </div>
         </div>
       </div>
